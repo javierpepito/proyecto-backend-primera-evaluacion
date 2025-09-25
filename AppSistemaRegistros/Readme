@@ -38,5 +38,6 @@ convencion de commits:
 -refactor
 
 python -m venv venv
+python manage.py makemigrations
 python manage.py migrate
-python manage.py migrate
+python manage.py createsuperuser
