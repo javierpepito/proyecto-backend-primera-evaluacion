@@ -8,7 +8,7 @@
 
 
 ### Visitante
-nombre/RUT/motivo/fecha/hora-entrada o salida (o la hora de entrada y salida)
+nombre/RUT/motivo/fecha/hora- la hora de entrada y salida
 
 Para mostrar los visitantes del dia se utilizara la fecha del sistema o libreria para fecha actual, con esta se filtrara en la BD.
 Se validara: nombres, RUT, cantidad de caracteres del motivo, formato de hora y que sean consistentes.
@@ -57,4 +57,8 @@ python manage.py createsuperuser
 
 ```bash
 python manage.py runserver
+```
+
+```bash
+<a href="{% url 'lista_productos' %}" class="font-bold">Inventario</a>
 ```

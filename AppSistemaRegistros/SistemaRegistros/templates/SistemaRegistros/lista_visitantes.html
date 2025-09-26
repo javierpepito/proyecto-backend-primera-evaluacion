@@ -1,20 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Visitantes</title>
-</head>
-<body>
-    <ul>
-        {% for visitante in visitantes %}
-            <li>{{ visitante.rut }}</li>
-            <li>{{ visitante.nombre }}</li> 
-            <li>{{ visitante.motivo_visita }}</li> 
-            <li>{{ visitante.fecha_visita }}</li> 
-            <li>{{ visitante.hora_visita }}</li>    
-        {% endfor %} 
-    </ul>
-</body>
-</html>
+{% extends 'SistemaRegistros/base.html' %}
 
+{% block title %}
+    Lista de Visitantes
+{% endblock %}
+
+{% block main %}
+    <div class="p-4">
+        <ul>
+            {% for visitante in visitantes %}
+                <li>■ RUT: {{ visitante.rut }}</li>
+                <li>■ Nombre: {{ visitante.nombre }}</li> 
+                <li>■ Motivo de la visita: {{ visitante.motivo_visita }}</li> 
+                <li>■ Fecha de la visita: {{ visitante.fecha_visita }}</li> 
+                <li>■ Hora de entrada a la empresa: {{ visitante.hora_entrada }}</li>
+                <li>■ Hora de salida de la empresa: {{ visitante.hora_salida }}</li>        
+            {% endfor %} 
+        </ul>
+    </div>
+{% endblock %}

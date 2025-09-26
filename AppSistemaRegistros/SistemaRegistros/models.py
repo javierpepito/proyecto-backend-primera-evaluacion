@@ -8,7 +8,8 @@ class Visitante(models.Model):
     nombre = models.CharField(max_length=100)
     motivo_visita = models.TextField(max_length=500)
     fecha_visita = models.DateField()
-    hora_visita = models.TimeField()
+    hora_entrada = models.TimeField()
+    hora_salida = models.TimeField()
 
     def __str__(self):
         return self.nombre
