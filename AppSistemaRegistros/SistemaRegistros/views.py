@@ -2,43 +2,36 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Visitante
 from .forms import VisitanteForm
 
-#READ (LIST)
-def visitante_list(request):
+def lista_visitantes(request):
     visitantes = Visitante.objects.all()
-    return render(request, 'SistemaRegistros/visitante_list.html', {'object_list': visitantes})
+    return render(request, 'SistemaRegistros/lista_visitantes.html', {'visitantes': visitantes})
 
-# READ (Detail)
-def visitante_detail(request, pk):
-    visitante = get_object_or_404(Visitante, pk=pk)
-    return render(request, 'SistemaRegistros/visitante_detail.html',{'object': visitante})
-
-# CREATE
-def visitante_create(request):
+"""def nuevo_visitante(request):
     if request.method == 'POST':
         form = VisitanteForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('visitante_list')
+            return redirect('lista_visitantes')
     else:
         form = VisitanteForm()
-        return render(request, 'SistemaRegistros/visitante_form.html', {'form':form})
+    return render(request, 'SistemaRegistros/nuevo_visitante.html', {'form': form})
 
-# UPDATE
-def visitante_update(request, pk):
-    visitante = get_object_or_404(Visitante, pk=pk)
+
+def editar_visitante(request, id):
+    visitante = get_object_or_404(Visitante, id=id)
     if request.method == 'POST':
         form = VisitanteForm(request.POST, instance=visitante)
-    if form.is_valid():
-        form.save()
-        return redirect('visitante_list')
+        if form.is_valid():
+            form.save()
+            return redirect('lista_visitantes')
     else:
         form = VisitanteForm(instance=visitante)
-        return render(request, 'SistemaRegistros/visitante_form.html', {'form':form})
+    return render(request, 'SistemaRegistros/editar_visitante.html', {'form': form})
 
-# DELETE
-def visitante_delete(request, pk):
-    visitante = get_object_or_404(Visitante, pk=pk)
+
+def eliminar_visitante(request, id):
+    visitante = get_object_or_404(Visitante, id=id)
     if request.method == 'POST':
         visitante.delete()
-        return redirect('visitante_list')
-    return render(request,'SistemaRegistros/visitante_confirm_delete.html', {'object': visitante})
+        return redirect('lista_visitantes')
+    return render(request, 'SistemaRegistros/eliminar_visitante.html', {'visitante': visitante})"""

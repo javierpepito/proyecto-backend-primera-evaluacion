@@ -1,10 +1,9 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from.import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('inicio/',views.inicio),
-    path('productos/', views.lista_productos, name='lista_productos'),
-    path('inventario/', include('inventario.urls'))
+    path("", views.lista_visitantes, name="lista_visitantes"),
+    #path("visitante/nuevo/", views.nuevo_visitante, name="nuevo_visitante"),
+    #path("visitante/editar/<int:id>/", views.editar_visitante, name="editar_visitante"),
+    #path("visitante/eliminar/<int:id>/", views.eliminar_visitante, name="eliminar_visitante"),
 ]
