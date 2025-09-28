@@ -62,3 +62,21 @@ python manage.py runserver
 ```bash
 <a href="{% url 'lista_productos' %}" class="font-bold">Inventario</a>
 ```
+
+COLORES
+navbar: #262b40
+fondo claro: #B8D9FF
+fondo oscuro: #004CA3
+footer: #013c80
+bordes: grey
+
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link href="../static/css/home.css" rel="stylesheet">
+
+<!--
+<td>
+    <form action="/eliminar_cliente/{{ resultado._id }}" method="POST" style="display:inline;">
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+    </form> 
+</td>
+-->

@@ -1,0 +1,40 @@
+{% extends 'SistemaRegistros/base.html' %}
+
+{% block title %}
+    Lista de Visitantes
+{% endblock %}
+
+{% block content %}
+    <div class="p-4">
+        <h2 class="mb-4">
+            Listado de Visitas del Día
+            <span><i class="bi bi-person-fill"></i></span>
+        </h2>
+        <table class="table table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">RUT</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Motivo de la visita</th>
+                    <th scope="col">Fecha de la visita</th>
+                    <th scope="col">Hora de entrada a la empresa</th>
+                    <th scope="col">Hora de salida de la empresa</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for visitante in visitantes %}
+                    <tr>
+                        <td>{{ visitante.rut }}</td>
+                        <td>{{ visitante.nombre }}</td>
+                        <td>{{ visitante.motivo_visita }}</td>
+                        <td>{{ visitante.fecha_visita }}</td>
+                        <td>{{ visitante.hora_entrada }}</td>
+                        <td>{{ visitante.hora_salida }}</td>
+
+                    </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
