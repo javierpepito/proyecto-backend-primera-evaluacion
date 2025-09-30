@@ -103,13 +103,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es' # Se cambia el idioma de Django a español
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Santiago'  # Se cambia a Santiago para que los mensajes y otras cosas esten en nuestro idioma o formato
 
-USE_I18N = True
+USE_I18N = True  
 
-USE_TZ = True
+USE_TZ = True   
 
 
 # Static files (CSS, JavaScript, Images)

@@ -71,17 +71,14 @@ python manage.py runserver
 -->
 
 ## Trabajo Pendiente
-1. Fecha en ingles desde formato a nombre de mes.
-2. Hora 12:00 se transforma a "noon" y las 00:00 a "midnight".
-3. Mensaje de exito en crear.html y no redirigir a lista.
-4. Al cargar los datos en el formulario de edicion no carga fecha ni hora debido al formato.
-5. Probar todas las validaciones que logra bootsrap y django por si solos.
+1. Probar todas las validaciones que logra bootsrap y django por si solos.
+()
 
-6. Validar rut: que tenga guion, que solo pueda ser letra el ultimo caracter, ademas de que los otros sean solo numeros y no caracteres especiales.
-7. Validar nombre: que solo sea texto y no numero o caracteres especiales. 
-8. Validar fecha: 
-9. Validar hora_entrada y hora_salida: 
+2. Validar rut: que tenga guion, que solo pueda ser letra el ultimo caracter, ademas de que los otros sean solo numeros y no caracteres especiales.
+3. Validar nombre: que solo sea texto y no numero o caracteres especiales. 
+4. Validar fecha: 
+5. Validar hora_entrada y hora_salida: 
 
-10. Hacer texto bienvenida y escoger foto.
-11. Todo el diseño y responsividad.
-12. Extra: Dividir funcion de ver visitas del dia y todas.
+6. Hacer texto bienvenida y escoger foto.
+7. Todo el diseño y responsividad.
+8. Extra: Dividir funcion de ver visitas del dia y todas.

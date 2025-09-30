@@ -70,5 +70,22 @@
             {% endif %}
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
+        {% if mensaje_exito %}
+            <div class="alert alert-success" role="alert" id="mensaje-exito">
+                {{ mensaje_exito }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+            </div>
+        {% endif %}
+        <script>
+            // Espera 10 segundos (10000 ms) y oculta el mensaje
+            setTimeout(function() {
+                const mensaje = document.getElementById("mensaje-exito");
+                if (mensaje) {
+                    mensaje.style.transition = "opacity 1s ease"; // animación
+                    mensaje.style.opacity = "0"; 
+                    setTimeout(() => mensaje.remove(), 1000); // lo elimina del DOM
+                }
+            }, 10000);
+        </script>
     </div>
 {% endblock %}

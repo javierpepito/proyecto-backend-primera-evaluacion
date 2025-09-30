@@ -43,7 +43,7 @@
             {% endif %}
             <div class="form-group">
                 <label for="fecha_visita">Fecha de la Visita</label>
-                <input type="date" class="form-control" id="fecha_visita" name="fecha_visita" value="{{ form.fecha_visita.value }}" required>
+                <input type="date" class="form-control" id="fecha_visita" name="fecha_visita" value="{{ form.fecha_visita.value|date:'Y-m-d' }}" required>
             </div>
             {% if form.fecha_visita.errors %}
                 <div class="alert alert-danger m-2 p-2" role="alert">

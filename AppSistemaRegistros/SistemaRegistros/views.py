@@ -7,15 +7,16 @@ def lista_visitas(request):
     return render(request, 'SistemaRegistros/lista_visitas.html', {'visitas': visitas})
 
 def registrar_visita(request):
+    mensaje_exito = ""
     if request.method == 'POST':
         form = VisitaForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('lista_visitas')
+            mensaje_exito = "Se ha registrado la visita con éxito."
+            form = VisitaForm()
     else:
         form = VisitaForm()
-    return render(request, 'SistemaRegistros/registrar_visita.html', {'form': form})
-
+    return render(request, 'SistemaRegistros/registrar_visita.html', {'form': form, 'mensaje_exito': mensaje_exito})
 
 def editar_visita(request, rut):
     visita = get_object_or_404(Visita, rut=rut)
