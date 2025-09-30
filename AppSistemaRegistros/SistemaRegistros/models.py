@@ -6,7 +6,7 @@ from django.db import models
 class Visita(models.Model):
     rut = models.CharField(max_length=10, unique=True)
     nombre = models.CharField(max_length=100)
-    motivo_visita = models.TextField(max_length=500)
+    motivo_visita = models.TextField(max_length=300)
     fecha_visita = models.DateField()
     hora_entrada = models.TimeField()
     hora_salida = models.TimeField()
