@@ -28,10 +28,9 @@ def editar_visita(request, rut):
         form = VisitaForm(instance=visita)
     return render(request, 'SistemaRegistros/editar_visita.html', {'form': form})
 
-""""
-def eliminar_visitante(request, id):
-    visitante = get_object_or_404(Visitante, id=id)
+def eliminar_visita(request, rut):
+    visita = get_object_or_404(Visita, rut=rut)
     if request.method == 'POST':
-        visitante.delete()
+        visita.delete()
         return redirect('lista_visitas')
-    return render(request, 'SistemaRegistros/eliminar_visitante.html', {'visitante': visitante})"""
+    return render(request, 'SistemaRegistros/eliminar_visita.html', {'visita': visita})

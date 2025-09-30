@@ -71,7 +71,7 @@ python manage.py runserver
 <link href="../static/css/home.css" rel="stylesheet">
 -->
 
-### Pendientes a Corregir
+## Pendientes a Corregir
 1. Fecha en ingles desde formato a nombre de mes.
 2. hora 12:00 se transforma a "noon" y las 00:00 a "midnight".
 3. mensaje de exito en crear.html y no redirigir a lista.

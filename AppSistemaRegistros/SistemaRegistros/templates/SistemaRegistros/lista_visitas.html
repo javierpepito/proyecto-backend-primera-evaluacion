@@ -33,6 +33,7 @@
                         <td>{{ visita.hora_salida }}</td>
                         <td>
                             <a href="{% url 'editar_visita' visita.rut %}" class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</a>
+                            <a href="{% url 'eliminar_visita' visita.rut %}" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</a>
                         </td> 
                     </tr>
                 {% endfor %} 
