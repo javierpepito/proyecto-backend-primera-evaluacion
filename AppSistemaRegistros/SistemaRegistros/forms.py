@@ -1,7 +1,7 @@
 from django import forms
-from .models import Visitante
+from .models import Visita
 
-class VisitanteForm(forms.ModelForm):
+class VisitaForm(forms.ModelForm):
     class Meta:
-        model = Visitante
+        model = Visita
         fields = ["rut", "nombre", "motivo_visita", "fecha_visita", "hora_entrada", "hora_salida"]

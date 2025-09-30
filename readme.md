@@ -59,24 +59,20 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-```bash
-<a href="{% url 'lista_productos' %}" class="font-bold">Inventario</a>
-```
+## COLORES
+* Navbar: #262b40
+* Fondo claro: #B8D9FF
+* Fondo oscuro: #004CA3
+* Footer: #013c80
+* Bordes: grey
 
-COLORES
-navbar: #262b40
-fondo claro: #B8D9FF
-fondo oscuro: #004CA3
-footer: #013c80
-bordes: grey
-
+<!-- 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <link href="../static/css/home.css" rel="stylesheet">
-
-<!--
-<td>
-    <form action="/eliminar_cliente/{{ resultado._id }}" method="POST" style="display:inline;">
-        <button type="submit" class="btn btn-danger">Eliminar</button>
-    </form> 
-</td>
 -->
+
+### Pendientes a Corregir
+1. Fecha en ingles desde formato a nombre de mes.
+2. hora 12:00 se transforma a "noon" y las 00:00 a "midnight".
+3. mensaje de exito en crear.html y no redirigir a lista.
+4. al cargar los datos ene el formulario de edicion no carga fecha ni hora debido al formato.

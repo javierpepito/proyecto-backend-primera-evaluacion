@@ -3,8 +3,8 @@ from django.db import models
 # Create your models here.
 
 #Modelo del visitante con campo fecha y hora por separado para facilitar su filtrado.
-class Visitante(models.Model):
-    rut = models.CharField(max_length=10)
+class Visita(models.Model):
+    rut = models.CharField(max_length=10, unique=True)
     nombre = models.CharField(max_length=100)
     motivo_visita = models.TextField(max_length=500)
     fecha_visita = models.DateField()

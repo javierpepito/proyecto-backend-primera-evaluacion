@@ -23,15 +23,17 @@
                 </tr>
             </thead>
             <tbody>
-                {% for visitante in visitantes %}
+                {% for visita in visitas %}
                     <tr>
-                        <td>{{ visitante.rut }}</td>
-                        <td>{{ visitante.nombre }}</td>
-                        <td>{{ visitante.motivo_visita }}</td>
-                        <td>{{ visitante.fecha_visita }}</td>
-                        <td>{{ visitante.hora_entrada }}</td>
-                        <td>{{ visitante.hora_salida }}</td>
-
+                        <td>{{ visita.rut }}</td>
+                        <td>{{ visita.nombre }}</td>
+                        <td>{{ visita.motivo_visita }}</td>
+                        <td>{{ visita.fecha_visita }}</td>
+                        <td>{{ visita.hora_entrada }}</td>
+                        <td>{{ visita.hora_salida }}</td>
+                        <td>
+                            <a href="{% url 'editar_visita' visita.rut %}" class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</a>
+                        </td> 
                     </tr>
                 {% endfor %} 
             </tbody>
