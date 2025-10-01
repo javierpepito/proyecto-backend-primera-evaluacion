@@ -69,7 +69,7 @@ python manage.py runserver
 * Cambiar los mensajes predeterminados de django por mensajes hechos por mi.
 * Validar rut: que tenga guion, que solo pueda ser letra el ultimo caracter, ademas de que los otros sean solo numeros y no caracteres especiales. que sea unico
 * Validar nombre: que solo sea texto y no numero o caracteres especiales. Cantidad de letras junto con motivo de visita.
-* Validar fecha: NINGUNA CREO
+* Validar fecha: Que se valide que el rut ya tenga una misma visita en la misma fecha.
 * Validar hora_entrada y hora_salida: La hora de salida no puede ser antes de que entre.
 
 * Hacer texto bienvenida.
