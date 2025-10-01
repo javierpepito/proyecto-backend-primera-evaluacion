@@ -1,0 +1,38 @@
+/*CSS Globales*/
+.navbar{
+    background-color: #262b40;
+}
+
+.seccion-fondo-claro{
+    background-color: #B8D9FF;
+    min-height: 100vh;           
+    width: 100%;
+}
+
+/*CSS de lista_visitas.html*/
+.seccion-bienvenida{
+    background-color: #004CA3;
+    padding: 10px;
+    display: flex;
+    border-top: gray 2px solid;
+}
+
+.seccion-listado{
+    background-color: #B8D9FF;
+    padding: 10px;
+}
+
+.contenedor-imagen img{
+    border-radius: 40px;
+    border:#B8D9FF 4px solid;
+}
+
+.contenedor-texto{
+    color: white;
+}
+
+/*CSS de registrar_visita.html*/
+
+/*CSS de eliminar_visita.html*/
+
+/*CSS de editar_visita.html*/

@@ -65,20 +65,15 @@ python manage.py runserver
 * Footer: #013c80
 * Bordes: grey
 
-<!-- 
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-<link href="../static/css/home.css" rel="stylesheet">
--->
-
 ## Trabajo Pendiente
-1. Probar todas las validaciones que logra bootsrap y django por si solos.
-()
+* Cambiar los mensajes predeterminados de django por mensajes hechos por mi.
+* Validar rut: que tenga guion, que solo pueda ser letra el ultimo caracter, ademas de que los otros sean solo numeros y no caracteres especiales. que sea unico
+* Validar nombre: que solo sea texto y no numero o caracteres especiales. Cantidad de letras junto con motivo de visita.
+* Validar fecha: NINGUNA CREO
+* Validar hora_entrada y hora_salida: La hora de salida no puede ser antes de que entre.
 
-2. Validar rut: que tenga guion, que solo pueda ser letra el ultimo caracter, ademas de que los otros sean solo numeros y no caracteres especiales.
-3. Validar nombre: que solo sea texto y no numero o caracteres especiales. 
-4. Validar fecha: 
-5. Validar hora_entrada y hora_salida: 
+* Hacer texto bienvenida.
+* Todo el diseño y responsividad. Ademas agregar Font Tecnologico.
+* Extra: Dividir funcion de ver visitas del dia y todas.
 
-6. Hacer texto bienvenida y escoger foto.
-7. Todo el diseño y responsividad.
-8. Extra: Dividir funcion de ver visitas del dia y todas.
+* Revisra ultima conversacion con chatgpt/ linea blanca

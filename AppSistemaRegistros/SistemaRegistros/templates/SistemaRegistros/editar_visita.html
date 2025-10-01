@@ -5,71 +5,73 @@
 {% endblock %}
 
 {% block content %}
-    <div class="m-2 p-4">
-        <h2>
-            Editar registro de la visita
-            <span><i class="bi bi-calendar"></i></span>
-        </h2>
-        <p>Cambie los campos y guarde para editar la visita.</p>
-        <form method="POST">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="rut">RUT</label>
-                <input type="text" class="form-control" id="rut" name="rut" aria-describedby="ayudaFormato" placeholder="Ej: 23433434-6" value="{{ form.rut.value }}" required>
-                <small id="ayudaFormato" class="form-text text-muted">Recuerde que el RUT debe ir sin puntos y con guión al final.</small>
-            </div>
-            {% if form.rut.errors %}
-                <div class="alert alert-danger m-2 p-2" role="alert">
-                    {{ form.rut.errors }}
+    <section class="seccion-fondo-claro">
+        <div class="m-2 p-4">
+            <h2>
+                Editar registro de la visita
+                <span><i class="bi bi-calendar"></i></span>
+            </h2>
+            <p>Cambie los campos y guarde para editar la visita.</p>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="rut">RUT</label>
+                    <input type="text" class="form-control" id="rut" name="rut" aria-describedby="ayudaFormato" placeholder="Ej: 23433434-6" value="{{ form.rut.value }}" required>
+                    <small id="ayudaFormato" class="form-text text-muted">Recuerde que el RUT debe ir sin puntos y con guión al final.</small>
                 </div>
-            {% endif %}
-            <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" value="{{ form.nombre.value }}" required>
-            </div>
-            {% if form.nombre.errors %}
-                <div class="alert alert-danger m-2 p-2" role="alert">
-                    {{ form.nombre.errors }}
+                {% if form.rut.errors %}
+                    <div class="alert alert-danger m-2 p-2" role="alert">
+                        {{ form.rut.errors }}
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" value="{{ form.nombre.value }}" required>
                 </div>
-            {% endif %}
-            <div class="form-group">
-                <label for="motivo_visita">Motivo de la Visita</label>
-                <input type="text" class="form-control" id="motivo_visita" name="motivo_visita" value="{{ form.motivo_visita.value }}" required>
-            </div>
-            {% if form.motivo_visita.errors %}
-                <div class="alert alert-danger m-2 p-2" role="alert">
-                    {{ form.motivo_visita.errors }}
+                {% if form.nombre.errors %}
+                    <div class="alert alert-danger m-2 p-2" role="alert">
+                        {{ form.nombre.errors }}
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="motivo_visita">Motivo de la Visita</label>
+                    <input type="text" class="form-control" id="motivo_visita" name="motivo_visita" value="{{ form.motivo_visita.value }}" required>
                 </div>
-            {% endif %}
-            <div class="form-group">
-                <label for="fecha_visita">Fecha de la Visita</label>
-                <input type="date" class="form-control" id="fecha_visita" name="fecha_visita" value="{{ form.fecha_visita.value|date:'Y-m-d' }}" required>
-            </div>
-            {% if form.fecha_visita.errors %}
-                <div class="alert alert-danger m-2 p-2" role="alert">
-                    {{ form.fecha_visita.errors }}
+                {% if form.motivo_visita.errors %}
+                    <div class="alert alert-danger m-2 p-2" role="alert">
+                        {{ form.motivo_visita.errors }}
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="fecha_visita">Fecha de la Visita</label>
+                    <input type="date" class="form-control" id="fecha_visita" name="fecha_visita" value="{{ form.fecha_visita.value|date:'Y-m-d' }}" required>
                 </div>
-            {% endif %}
-            <div class="form-group">
-                <label for="hora_entrada">Hora de Entrada</label>
-                <input type="time" class="form-control" id="hora_entrada" name="hora_entrada" value="{{ form.hora_entrada.value }}" required>
-            </div>
-            {% if form.hora_entrada.errors %}
-                <div class="alert alert-danger m-2 p-2" role="alert">
-                    {{ form.hora_entrada.errors }}
+                {% if form.fecha_visita.errors %}
+                    <div class="alert alert-danger m-2 p-2" role="alert">
+                        {{ form.fecha_visita.errors }}
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="hora_entrada">Hora de Entrada</label>
+                    <input type="time" class="form-control" id="hora_entrada" name="hora_entrada" value="{{ form.hora_entrada.value }}" required>
                 </div>
-            {% endif %}
-            <div class="form-group">
-                <label for="hora_salida">Hora de Salida</label>
-                <input type="time" class="form-control" id="hora_salida" name="hora_salida" value="{{ form.hora_salida.value }}" required>
-            </div>
-            {% if form.hora_salida.errors %}
-                <div class="alert alert-danger m-2 p-2" role="alert">
-                    {{ form.hora_salida.errors }}
+                {% if form.hora_entrada.errors %}
+                    <div class="alert alert-danger m-2 p-2" role="alert">
+                        {{ form.hora_entrada.errors }}
+                    </div>
+                {% endif %}
+                <div class="form-group">
+                    <label for="hora_salida">Hora de Salida</label>
+                    <input type="time" class="form-control" id="hora_salida" name="hora_salida" value="{{ form.hora_salida.value }}" required>
                 </div>
-            {% endif %}
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a class="btn btn-danger" href="{% url 'lista_visitas' %}" >Cancelar</a>
-        </form>
-    </div>
+                {% if form.hora_salida.errors %}
+                    <div class="alert alert-danger m-2 p-2" role="alert">
+                        {{ form.hora_salida.errors }}
+                    </div>
+                {% endif %}
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a class="btn btn-danger" href="{% url 'lista_visitas' %}" >Cancelar</a>
+            </form>
+        </div>
+    </section>
 {% endblock %}

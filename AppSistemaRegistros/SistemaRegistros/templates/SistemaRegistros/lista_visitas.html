@@ -5,39 +5,52 @@
 {% endblock %}
 
 {% block content %}
-    <div class="p-4">
-        <h2 class="mb-4">
-            Listado de Visitas del Día
-            <span><i class="bi bi-person-fill"></i></span>
-        </h2>
-        <table class="table table-hover">
-            <thead class="table-primary">
-                <tr>
-                    <th scope="col">RUT</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Motivo de la visita</th>
-                    <th scope="col">Fecha de la visita</th>
-                    <th scope="col">Hora de entrada</th>
-                    <th scope="col">Hora de salida</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for visita in visitas %}
+    <section class="seccion-bienvenida">
+        <div class="contenedor-imagen m-4">
+            <img src="../../static/SistemaRegistros/images/microprocesador.jpg" alt="Imagen de procesador">
+
+        </div>
+        <div class="contenedor-texto  d-flex flex-column justify-content-center align-items-center">
+            <h2>Bienvenido</h2>
+            <p>Parrafo Parrafo Parrafo Parrafo Parrafo Parrafo Parrafo Parrafo Parrafo Parrafo.</p>
+        </div>
+    </section>
+
+    <section class="seccion-listado">
+        <div class="p-4 table-responsive">
+            <h2 class="mb-4">
+                Listado de Visitas del Día
+                <span><i class="bi bi-person-fill"></i></span>
+            </h2>
+            <table class="table table-hover">
+                <thead class="table-primary">
                     <tr>
-                        <td>{{ visita.rut }}</td>
-                        <td>{{ visita.nombre }}</td>
-                        <td>{{ visita.motivo_visita }}</td>
-                        <td>{{ visita.fecha_visita }}</td>
-                        <td>{{ visita.hora_entrada }}</td>
-                        <td>{{ visita.hora_salida }}</td>
-                        <td>
-                            <a href="{% url 'editar_visita' visita.rut %}" class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</a>
-                            <a href="{% url 'eliminar_visita' visita.rut %}" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</a>
-                        </td> 
+                        <th scope="col">RUT</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Motivo de la visita</th>
+                        <th scope="col">Fecha de la visita</th>
+                        <th scope="col">Hora de entrada</th>
+                        <th scope="col">Hora de salida</th>
+                        <th scope="col">Acciones</th>
                     </tr>
-                {% endfor %} 
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    {% for visita in visitas %}
+                        <tr>
+                            <td>{{ visita.rut }}</td>
+                            <td>{{ visita.nombre }}</td>
+                            <td>{{ visita.motivo_visita }}</td>
+                            <td>{{ visita.fecha_visita }}</td>
+                            <td>{{ visita.hora_entrada }}</td>
+                            <td>{{ visita.hora_salida }}</td>
+                            <td>
+                                <a href="{% url 'editar_visita' visita.rut %}" class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</a>
+                                <a href="{% url 'eliminar_visita' visita.rut %}" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</a>
+                            </td> 
+                        </tr>
+                    {% endfor %} 
+                </tbody>
+            </table>
+        </div>
+    </section>
 {% endblock %}
