@@ -63,4 +63,3 @@ python manage.py runserver
 
 ## Trabajo Pendiente
 * Responsividad especialmente con la imagen, ademas agregar Font Tecnologico.
-* Si se entra a las 20:00 y se sale a las 1:00 da error porque se piensa que salio antes de que entro. diferenciar PM de AM.

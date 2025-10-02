@@ -1,3 +1,5 @@
+from typing import Union
+
 #Funciones para el RUT y su facil uso dentro de forms.py
 
 def formatear_rut(rut: str) -> str:
@@ -21,7 +23,7 @@ def calcular_dv(rut_numeros: str) -> str:
     else:
         return str(resto)
 
-def validar_rut(rut: str) -> str | None:
+def validar_rut(rut: str) -> Union[str, None]:
     rut = formatear_rut(rut)
     
     #Validar longitud del RUT

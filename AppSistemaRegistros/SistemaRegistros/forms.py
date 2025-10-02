@@ -9,6 +9,7 @@ class VisitaForm(forms.ModelForm):
     class Meta:
         model = Visita
         fields = '__all__'
+        #Se modifican los mensajes predeterminados
         error_messages = {
             'nombre': {'max_length': "El nombre no puede superar los 50 caracteres.",},
             'motivo_visita': {'max_length': "El motivo de la visita no puede superar los 200 caracteres.",}
@@ -40,6 +41,7 @@ class VisitaForm(forms.ModelForm):
             raise ValidationError("El motivo de la visita no puede superar los 200 caracteres.")
         return motivo"""
 
+    #Se valida que no se puedan fechas pasadas al dia actual y que no tenga un visita el mismo dia
     def clean_fecha_visita(self):
         fecha_visita = self.cleaned_data.get('fecha_visita')
         rut = self.cleaned_data.get('rut')
@@ -67,6 +69,7 @@ class VisitaForm(forms.ModelForm):
                 raise ValidationError("La hora de salida no puede ser anterior a la hora de entrada.")
         return hora_salida"""
 
+    #Valida que la hora de salida no sea anterior a la hora de entrada y la duracion maxima de la visita
     def clean_hora_salida(self):
         hora_salida = self.cleaned_data.get('hora_salida')
         hora_entrada = self.cleaned_data.get('hora_entrada')
