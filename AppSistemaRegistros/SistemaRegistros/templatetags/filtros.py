@@ -4,14 +4,14 @@ register = template.Library()
 
 @register.filter
 def formatear_rut(rut: str) -> str:
-    """
-    Da formato al RUT chileno: 22025650-2 → 22.025.650-2
-    """
+    
+    #Da formato al RUT chileno: 22025650-2 → 22.025.650-2
+    
     if not rut:
         return ""
     rut = rut.replace(".", "").upper()
     if "-" not in rut:
-        return rut  # por si viene mal formado
+        return rut 
     
     cuerpo, dv = rut.split("-")
     cuerpo = cuerpo[::-1]
