@@ -31,6 +31,10 @@
     color: white;
 }
 
+.contenedor-texto h2 {
+    font-display: center;
+}
+
 /*CSS de registrar_visita.html*/
 
 /*CSS de eliminar_visita.html*/

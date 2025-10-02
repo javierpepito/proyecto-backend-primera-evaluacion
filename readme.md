@@ -66,9 +66,9 @@ python manage.py runserver
 * Bordes: grey
 
 ## Trabajo Pendiente
-* Hacer texto bienvenida.
+* footer
 * Todo el diseño y responsividad. Ademas agregar Font Tecnologico.
 * Revisra ultima conversacion con chatgpt/ linea blanca
+* favicon
 
-* Extra: Dividir funcion de ver visitas del dia y todas.
-* Que eliminar muestre mas detalles
+* Si se entra a las 20:00 y se sale a las 1:00 da error porque se piensa que salio antes de que entro. diferenciar PM de AM.

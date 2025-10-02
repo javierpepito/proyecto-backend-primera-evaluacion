@@ -1,62 +1,68 @@
 from django import forms
 from .models import Visita
 from django.core.exceptions import ValidationError
+from .utils import validar_rut, formatear_rut
 import re
+from datetime import date
 
 class VisitaForm(forms.ModelForm):
     class Meta:
         model = Visita
         fields = '__all__'
+        error_messages = {
+            'nombre': {'max_length': "El nombre no puede superar los 50 caracteres.",},
+            'motivo_visita': {'max_length': "El motivo de la visita no puede superar los 200 caracteres.",}
+            }
 
-    # --- Validación del RUT (solo formato, no unicidad) ---
+    # Validación de RUT
     def clean_rut(self):
-        rut = self.cleaned_data.get("rut", "").strip().upper()
-
-        # Verificar formato: ########-X
-        if not re.match(r'^\d{7,8}-[\dK]$', rut):
-            raise ValidationError("El RUT debe tener el formato XXXXXXXX-X, con último dígito numérico o K.")
-
+        rut = formatear_rut(self.cleaned_data.get('rut', ''))
+        error = validar_rut(rut)
+        if error:
+            raise forms.ValidationError(error)
         return rut
 
-    # --- Validación del nombre ---
+    # Validación de nombre
     def clean_nombre(self):
-        nombre = self.cleaned_data.get("nombre", "").strip()
-
-        # Solo letras y espacios
+        nombre = self.cleaned_data.get('nombre', '').strip()
         if not re.match(r'^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$', nombre):
             raise ValidationError("El nombre solo puede contener letras y espacios.")
-
-        if len(nombre) > 50:
+        
+        """if len(nombre) > 50:
             raise ValidationError("El nombre no puede superar los 50 caracteres.")
-
+        """
         return nombre
-
-    # --- Validación del motivo ---
-    def clean_motivo_visita(self):
-        motivo = self.cleaned_data.get("motivo_visita", "").strip()
-
+        
+    # Validación de motivo de visita
+    """def clean_motivo_visita(self):
+        motivo = self.cleaned_data.get('motivo_visita', '').strip()
         if len(motivo) > 200:
             raise ValidationError("El motivo de la visita no puede superar los 200 caracteres.")
+        return motivo"""
 
-        return motivo
+    def clean_fecha_visita(self):
+        fecha_visita = self.cleaned_data.get('fecha_visita')
+        rut = self.cleaned_data.get('rut')
 
-    # --- Validación de fechas/horas ---
-    def clean(self):
-        cleaned_data = super().clean()
-        rut = cleaned_data.get("rut")
-        fecha_visita = cleaned_data.get("fecha_visita")
-        hora_entrada = cleaned_data.get("hora_entrada")
-        hora_salida = cleaned_data.get("hora_salida")
+        # Validar que no se pueda crear una fecha pasada al dia actual
+        if fecha_visita:
+            if fecha_visita < date.today():
+                raise ValidationError("No se pueden registrar visitas para fechas pasadas.")
 
-        # Evitar visitas duplicadas en la misma fecha
         if rut and fecha_visita:
-            existe = Visita.objects.filter(rut=rut, fecha_visita=fecha_visita).exists()
-            if existe:
+            qs = Visita.objects.filter(rut=rut, fecha_visita=fecha_visita)
+            # Excluir el registro actual si se está editando
+            if self.instance.pk:
+                qs = qs.exclude(pk=self.instance.pk)
+            if qs.exists():
                 raise ValidationError("Este visitante ya tiene una visita registrada en esta fecha.")
 
-        # Validar que la hora de salida no sea antes que la de entrada
-        if hora_entrada and hora_salida:
+        return fecha_visita
+
+    def clean_hora_salida(self):
+        hora_salida = self.cleaned_data.get('hora_salida')
+        hora_entrada = self.cleaned_data.get('hora_entrada')
+        if hora_salida and hora_entrada:
             if hora_salida < hora_entrada:
                 raise ValidationError("La hora de salida no puede ser anterior a la hora de entrada.")
-
-        return cleaned_data
+        return hora_salida

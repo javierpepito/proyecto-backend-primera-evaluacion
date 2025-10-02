@@ -1,11 +1,16 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Visita
 from .forms import VisitaForm
-from .utils import validar_rut
+from datetime import date
 
 def lista_visitas(request):
-    visitas = Visita.objects.all()
-    return render(request, 'SistemaRegistros/lista_visitas.html', {'visitas': visitas})
+    hoy = date.today()  
+    visitas = Visita.objects.filter(fecha_visita=hoy)
+    return render(request, 'SistemaRegistros/lista_visitas.html', {'visitas': visitas, 'fecha_actual':hoy})
+
+def lista_completa(request): 
+    visitas = Visita.objects.all() 
+    return render(request, 'SistemaRegistros/lista_completa.html', {'visitas': visitas})
 
 def registrar_visita(request):
     mensaje_exito = ""
@@ -19,8 +24,8 @@ def registrar_visita(request):
         form = VisitaForm()
     return render(request, 'SistemaRegistros/registrar_visita.html', {'form': form, 'mensaje_exito': mensaje_exito})
 
-def editar_visita(request, rut):
-    visita = get_object_or_404(Visita, rut=rut)
+def editar_visita(request, id):
+    visita = get_object_or_404(Visita, id=id)
     if request.method == 'POST':
         form = VisitaForm(request.POST, instance=visita)
         if form.is_valid():
@@ -30,8 +35,8 @@ def editar_visita(request, rut):
         form = VisitaForm(instance=visita)
     return render(request, 'SistemaRegistros/editar_visita.html', {'form': form})
 
-def eliminar_visita(request, rut):
-    visita = get_object_or_404(Visita, rut=rut)
+def eliminar_visita(request, id):
+    visita = get_object_or_404(Visita, id=id)
     if request.method == 'POST':
         visita.delete()
         return redirect('lista_visitas')

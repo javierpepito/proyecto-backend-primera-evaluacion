@@ -13,7 +13,14 @@
             </h2>
             <form method="POST">
                 {% csrf_token %}
-                <p>¿Estás seguro de que deseas eliminar la visita de: "{{ visita.nombre }}"?</p>
+                <p>¿Estás seguro de que deseas eliminar la siguiente visita?</p>
+                <h5>Visita a eliminar:</h5>
+                <ul>
+                    <li>RUT: {{ visita.rut }}</li>
+                    <li>Nombre: {{ visita.nombre }}</li>
+                    <li>Motivo de la visita: {{ visita.motivo_visita }}</li>
+                    <li>Fecha de la Visita: {{ visita.fecha_visita }}</li>
+                </ul>
                 <button class="btn btn-danger" type="submit">Eliminar</button>
                 <a class="btn btn-primary" href="{% url 'lista_visitas' %}" >Cancelar</a>
             </form>

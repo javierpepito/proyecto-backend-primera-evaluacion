@@ -4,7 +4,7 @@ from django.db import models
 
 #Modelo del visitante con campo fecha y hora por separado para facilitar su filtrado.
 class Visita(models.Model):
-    rut = models.CharField(max_length=10, unique=True)
+    rut = models.CharField(max_length=10)
     nombre = models.CharField(max_length=50)
     motivo_visita = models.TextField(max_length=200)
     fecha_visita = models.DateField()
