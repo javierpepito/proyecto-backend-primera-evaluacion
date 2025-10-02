@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Visita
 from .forms import VisitaForm
+from .utils import validar_rut
 
 def lista_visitas(request):
     visitas = Visita.objects.all()

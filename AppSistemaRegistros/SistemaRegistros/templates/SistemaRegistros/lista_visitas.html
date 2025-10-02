@@ -1,4 +1,5 @@
 {% extends 'SistemaRegistros/base.html' %}
+{% load filtros %}
 
 {% block title %}
     Lista de Visitantes
@@ -37,7 +38,7 @@
                 <tbody>
                     {% for visita in visitas %}
                         <tr>
-                            <td>{{ visita.rut }}</td>
+                            <td>{{ visita.rut|formatear_rut }}</td>
                             <td>{{ visita.nombre }}</td>
                             <td>{{ visita.motivo_visita }}</td>
                             <td>{{ visita.fecha_visita }}</td>
