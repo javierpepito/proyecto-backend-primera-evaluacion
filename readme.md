@@ -6,12 +6,8 @@
 * Mostrar listado de visitas del día.
 * Utilizar estructuras de decisión para validar datos.
 
-
 ### Visitante
-nombre/RUT/motivo/fecha/hora- la hora de entrada y salida
-
-Para mostrar los visitantes del dia se utilizara la fecha del sistema o libreria para fecha actual, con esta se filtrara en la BD.
-Se validara: nombres, RUT, cantidad de caracteres del motivo, formato de hora y que sean consistentes.
+nombre/RUT/motivo/fecha/la hora de entrada y salida
 
 ### (Preguntar si debe estar el CRUD completo de visitante)
 > Deben de realizarse de alguna forma al menos las acciones CRUD: Crear datos, listar datos, actualizar datos y eliminar datos.
@@ -66,9 +62,5 @@ python manage.py runserver
 * Bordes: grey
 
 ## Trabajo Pendiente
-* footer
-* Todo el diseño y responsividad. Ademas agregar Font Tecnologico.
-* Revisra ultima conversacion con chatgpt/ linea blanca
-* favicon
-
+* Responsividad especialmente con la imagen, ademas agregar Font Tecnologico.
 * Si se entra a las 20:00 y se sale a las 1:00 da error porque se piensa que salio antes de que entro. diferenciar PM de AM.

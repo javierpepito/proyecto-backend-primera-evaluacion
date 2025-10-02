@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block content %}
-    <section class="seccion-fondo-claro">
-        <div class="m-2 p-2">
+    <section class="seccion-fondo-claro d-flex flex-column align-items-center">
+        <div class="contenedor-formulario p-4 mt-5">
             <h2 class="mb-4">
                 Eliminar registro de visita
                 <span><i class="bi bi-trash"></i></span>
@@ -21,8 +21,8 @@
                     <li>Motivo de la visita: {{ visita.motivo_visita }}</li>
                     <li>Fecha de la Visita: {{ visita.fecha_visita }}</li>
                 </ul>
-                <button class="btn btn-danger" type="submit">Eliminar</button>
-                <a class="btn btn-primary" href="{% url 'lista_visitas' %}" >Cancelar</a>
+                <button class="btn btn-danger m-1" type="submit">Eliminar</button>
+                <a class="btn btn-primary m-1" href="{% url 'lista_visitas' %}" >Cancelar</a>
             </form>
         </div>
     </section>

@@ -5,77 +5,77 @@
 {% endblock %}
 
 {% block content %}
-    <section class="seccion-fondo-claro">
-        <div class="m-2 p-4">
-            <h2>
+    <section class="seccion-fondo-claro d-flex flex-column justify-content-center align-items-center">
+        <div class="contenedor-formulario p-4">
+            <h2 class="text-center">
                 Registra una Nueva Visita
                 <span><i class="bi bi-calendar"></i></span>
             </h2>
             <p>Complete los siguientes datos para registrar una nueva visita a la empresa.</p>
             <form method="POST">
                 {% csrf_token %}
-                <div class="form-group">
+                <div class="form-group mt-2">
                     <label for="rut">RUT</label>
                     <input type="text" class="form-control" id="rut" name="rut" aria-describedby="ayudaFormato" placeholder="Ej: 23433434-6" required>
                     <small id="ayudaFormato" class="form-text text-muted">Debes ingresar tu RUT sin puntos y con guión al final.</small>
                 </div>
                 {% if form.rut.errors %}
-                    <div class="alert alert-danger m-2 p-2" role="alert">
+                    <div class="alert alert-danger m-2 p-2 position-relative" role="alert">
                         {{ form.rut.errors }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                     </div>
                 {% endif %}
-                <div class="form-group">
+                <div class="form-group mt-2">
                     <label for="nombre">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" required>
                 </div>
                 {% if form.nombre.errors %}
-                    <div class="alert alert-danger m-2 p-2" role="alert">
+                    <div class="alert alert-danger m-2 p-2 position-relative" role="alert">
                         {{ form.nombre.errors }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                     </div>
                 {% endif %}
-                <div class="form-group">
+                <div class="form-group mt-2">
                     <label for="motivo_visita">Motivo de la Visita</label>
                     <input type="text" class="form-control" id="motivo_visita" name="motivo_visita" required>
                 </div>
                 {% if form.motivo_visita.errors %}
-                    <div class="alert alert-danger m-2 p-2" role="alert">
+                    <div class="alert alert-danger m-2 p-2 position-relative" role="alert">
                         {{ form.motivo_visita.errors }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                     </div>
                 {% endif %}
-                <div class="form-group">
+                <div class="form-group mt-2">
                     <label for="fecha_visita">Fecha de la Visita</label>
                     <input type="date" class="form-control" id="fecha_visita" name="fecha_visita" required>
                 </div>
                 {% if form.fecha_visita.errors %}
-                    <div class="alert alert-danger m-2 p-2" role="alert">
+                    <div class="alert alert-danger m-2 p-2 position-relative" role="alert">
                         {{ form.fecha_visita.errors }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                     </div>
                 {% endif %}
-                <div class="form-group">
+                <div class="form-group mt-2">
                     <label for="hora_entrada">Hora de Entrada</label>
                     <input type="time" class="form-control" id="hora_entrada" name="hora_entrada" required>
                 </div>
                 {% if form.hora_entrada.errors %}
-                    <div class="alert alert-danger m-2 p-2" role="alert">
+                    <div class="alert alert-danger m-2 p-2 position-relative" role="alert">
                         {{ form.hora_entrada.errors }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                     </div>
                 {% endif %}
-                <div class="form-group">
+                <div class="form-group mt-2">
                     <label for="hora_salida">Hora de Salida</label>
                     <input type="time" class="form-control" id="hora_salida" name="hora_salida" required>
                 </div>
                 {% if form.hora_salida.errors %}
-                    <div class="alert alert-danger m-2 p-2" role="alert">
+                    <div class="alert alert-danger m-2 p-2 position-relative" role="alert">
                         {{ form.hora_salida.errors }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        <button type="button" class="btn-close position-absolute top-0 end-0 m-2" data-bs-dismiss="alert" aria-label="Cerrar"></button>
                     </div>
                 {% endif %}
-                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="submit" class="btn btn-primary mt-4">Guardar</button>
             </form>
             {% if mensaje_exito %}
                 <div class="alert alert-success" role="alert" id="mensaje-exito">

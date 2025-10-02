@@ -7,44 +7,46 @@
 
 {% block content %}
     <section class="seccion-listado">
-        <div class="p-4 table-responsive">
+        <div class="p-4">
             <h2 class="mb-4">
                 Listado Completa de Visitas
                 <span><i class="bi bi-person-fill"></i></span>
             </h2>
-            <table class="table table-hover">
-                <thead class="table-primary">
-                    <tr>
-                        <th scope="col">RUT</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Motivo de la visita</th>
-                        <th scope="col">Fecha de la visita</th>
-                        <th scope="col">Hora de entrada</th>
-                        <th scope="col">Hora de salida</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for visita in visitas %}
+            <div class="contenedor-tabla table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-warning">
                         <tr>
-                            <td>{{ visita.rut|formatear_rut }}</td>
-                            <td>{{ visita.nombre }}</td>
-                            <td>{{ visita.motivo_visita }}</td>
-                            <td>{{ visita.fecha_visita }}</td>
-                            <td>{{ visita.hora_entrada }}</td>
-                            <td>{{ visita.hora_salida }}</td>
-                            <td>
-                                <a href="{% url 'editar_visita' visita.id %}" class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</a>
-                                <a href="{% url 'eliminar_visita' visita.id %}" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</a>
-                            </td> 
+                            <th scope="col">RUT</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Motivo de la visita</th>
+                            <th scope="col">Fecha de la visita</th>
+                            <th scope="col">Hora de entrada</th>
+                            <th scope="col">Hora de salida</th>
+                            <th scope="col">Acciones</th>
                         </tr>
-                    {% empty %}
-                        <tr>
-                            <td colspan="7" class="text-center">No hay ninguna visita registrada todavia.</td>
-                        </tr>
-                    {% endfor %} 
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {% for visita in visitas %}
+                            <tr>
+                                <td>{{ visita.rut|formatear_rut }}</td>
+                                <td>{{ visita.nombre }}</td>
+                                <td>{{ visita.motivo_visita }}</td>
+                                <td>{{ visita.fecha_visita }}</td>
+                                <td>{{ visita.hora_entrada }}</td>
+                                <td>{{ visita.hora_salida }}</td>
+                                <td>
+                                    <a href="{% url 'editar_visita' visita.id %}" class="btn btn-info"><i class="bi bi-pencil-square"></i>Editar</a>
+                                    <a href="{% url 'eliminar_visita' visita.id %}" class="btn btn-danger"><i class="bi bi-trash"></i>Eliminar</a>
+                                </td> 
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td colspan="7" class="text-center">No hay ninguna visita registrada todavia.</td>
+                            </tr>
+                        {% endfor %} 
+                    </tbody>
+                </table>
+            </div>
         </div>
     </section>
 {% endblock %}
