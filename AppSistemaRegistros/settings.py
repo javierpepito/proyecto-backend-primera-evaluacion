@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-wl+(ikdxjah#)(+i(l)iadgm_sd+t*uqr169d-b$9nwk^qey0k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*' ] #Permitir que los sitios webs puedan hostear el proyecto CREO.
 
 
 # Application definition
@@ -117,6 +117,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'public'
+
+STATICFILES_DIRS =[
+    BASE_DIR / 'static'
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
