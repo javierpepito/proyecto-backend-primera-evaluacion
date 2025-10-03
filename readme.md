@@ -64,4 +64,8 @@ python manage.py runserver
 ## Trabajo Pendiente
 * Responsividad especialmente con la imagen, ademas agregar Font Tecnologico.
 
-* python -m pip install -r requiremts.txt
+## Despliege Heroku
+
+``` bash
+python -m pip install -r requiremts.txt
+```
