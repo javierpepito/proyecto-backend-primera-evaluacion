@@ -69,3 +69,5 @@ python manage.py runserver
 ``` bash
 python -m pip install -r requiremts.txt
 ```
+
+python manage.py collectstatic
