@@ -67,7 +67,19 @@ python manage.py runserver
 ## Despliege Heroku
 
 ``` bash
-python -m pip install -r requiremts.txt
+python -m pip install -r requirements.txt
 ```
 
-python manage.py collectstatic
+
+### comando para estar en python mas actualizado
+
+```bash
+c:\ProgramData\anaconda3\Scripts\activate.bat
+```
+
+```bash
+venv\Scripts\activate
+```
+
+* Configuramos settings.py en la parte de "database" y ponemos imports
+* se crea archivo .venv con las variables de entorno de "Transaction pooler"

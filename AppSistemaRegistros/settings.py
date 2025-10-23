@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,8 +29,8 @@ SECRET_KEY = 'django-insecure-wl+(ikdxjah#)(+i(l)iadgm_sd+t*uqr169d-b$9nwk^qey0k
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [ '.herokuapp.com' ] #Permitir que los sitios webs puedan hostear el proyecto CREO.
-
+#ALLOWED_HOSTS = [ '.herokuapp.com' ] Permitir que los sitios webs puedan hostear el proyecto CREO.
+ALLOWED_HOSTS = [ '*' ]
 
 # Application definition
 
@@ -75,8 +79,12 @@ WSGI_APPLICATION = 'AppSistemaRegistros.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("dbname"),
+        "USER": os.getenv("user"),
+        "PASSWORD": os.getenv("password"),
+        "HOST": os.getenv("host"),
+        "PORT": os.getenv("port")
     }
 }
 
