@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'AppSistemaRegistros.wsgi.application'
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("dbname"),
+        "DBNAME": os.getenv("dbname"),
         "USER": os.getenv("user"),
         "PASSWORD": os.getenv("password"),
         "HOST": os.getenv("host"),
