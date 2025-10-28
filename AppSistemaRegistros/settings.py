@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-wl+(ikdxjah#)(+i(l)iadgm_sd+t*uqr169d-b$9nwk^qey0k
 DEBUG = True
 
 #ALLOWED_HOSTS = [ '.herokuapp.com' ] Permitir que los sitios webs puedan hostear el proyecto CREO.
-ALLOWED_HOSTS = [ '.onrender.com' ]
+ALLOWED_HOSTS = [ 'proyecto-backend-primera-evaluacion.onrender.com', '.onrender.com' ]
 
 # Application definition
 
