@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-wl+(ikdxjah#)(+i(l)iadgm_sd+t*uqr169d-b$9nwk^qey0k
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 #ALLOWED_HOSTS = [ '.herokuapp.com' ] Permitir que los sitios webs puedan hostear el proyecto CREO.
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.onrender.com,proyecto-backend-primera-evaluacion.onrender.com').split(',')
+ALLOWED_HOSTS = ['.onrender.com']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://proyecto-backend-primera-evaluacion.onrender.com',
@@ -83,14 +83,21 @@ WSGI_APPLICATION = 'AppSistemaRegistros.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# Leer variables de entorno
+DB_HOST = os.environ.get('DB_HOST')
+DB_NAME = os.environ.get('DB_NAME')
+DB_USER = os.environ.get('DB_USER')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
+DB_PORT = os.environ.get('DB_PORT', '6543')
+
 DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
-        "DB_NAME": os.getenv("DB_NAME"),
-        "DB_USER": os.getenv("DB_USER"),
-        "DB_PASSWORD": os.getenv("DB_PASSWORD"),
-        "DB_HOST": os.getenv("DB_HOST"),
-        "DB_PORT": os.getenv("DB_PORT")
+        "DB_NAME": os.getenv(DB_NAME),
+        "DB_USER": os.getenv(DB_USER),
+        "DB_PASSWORD": os.getenv(DB_PASSWORD),
+        "DB_HOST": os.getenv(DB_HOST),
+        "DB_PORT": os.getenv(DB_PORT)
     }
 }
 
