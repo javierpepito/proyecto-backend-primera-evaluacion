@@ -29,7 +29,12 @@ SECRET_KEY = 'django-insecure-wl+(ikdxjah#)(+i(l)iadgm_sd+t*uqr169d-b$9nwk^qey0k
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 #ALLOWED_HOSTS = [ '.herokuapp.com' ] Permitir que los sitios webs puedan hostear el proyecto CREO.
-ALLOWED_HOSTS = [ 'proyecto-backend-primera-evaluacion.onrender.com', '.onrender.com' ]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '.onrender.com,proyecto-backend-primera-evaluacion.onrender.com').split(',')
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://proyecto-backend-primera-evaluacion.onrender.com',
+    'https://*.onrender.com',
+]
 
 # Application definition
 
@@ -45,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,12 +129,43 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/' 
-STATICFILES_DIRS = [
-    BASE_DIR / 'static', 
-]
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'django.request': {
+            'handlers': ['console'],
+            'level': 'ERROR',
+            'propagate': False,
+        },
+    },
+}
