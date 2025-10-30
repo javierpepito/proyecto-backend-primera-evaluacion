@@ -88,7 +88,6 @@ venv\Scripts\activate
 * ejecuccion de migraciones
 * conexion de supabase a render
 * archivos estaticos
-
 * paginacion de listados
 
 @admin.register(NombreClase)
@@ -104,3 +103,5 @@ class NombreClaseAdmin(admin:ModelAdmin):
 
 ### Mejorar en Markdown
 > Ver videos tutoriales de todos los posibles diseños.
+
+django-simple-crud
