@@ -1,4 +1,4 @@
-## Caso 1: Sistema de Registro de Visitas para una Empresa
+## Caso Escogido: Sistema de Registro de Visitas para una Empresa
 **Contexto**  Una empresa necesita llevar un control digital de las visitas que recibe diariamente.
 
 **Requerimientos**
@@ -6,13 +6,15 @@
 * Mostrar listado de visitas del día.
 * Utilizar estructuras de decisión para validar datos.
 
-### Visitante
-nombre/RUT/motivo/fecha/la hora de entrada y salida
+### Modelo de Visitante
+- nombre
+- rut
+- motivo_visita
+- fecha_visita
+- hora_entrada
+- hora_salida
 
-### (Preguntar si debe estar el CRUD completo de visitante)
-> Deben de realizarse de alguna forma al menos las acciones CRUD: Crear datos, listar datos, actualizar datos y eliminar datos.
-
-### (Preguntar si la pagina va dirigida a que los visitantes se anoten o un admin)
+### Preguntar si la pagina va dirigida a que los visitantes se anoten o un admin
 > El foco depende de ustedes, pero deben de solucionar la problematica cumpliendo con la escala de apreciación adjunta en el PDF.
 
 ## Escala de apreciacion
@@ -27,13 +29,13 @@ nombre/RUT/motivo/fecha/la hora de entrada y salida
 9. Cumple con los requerimientos funcionales del caso seleccionado: Soluciona todos los enunciados del caso seleccionado.
 10. Presenta el archivo sin errores de ejecución: Sin errores.
 
-## Convencion de commits:
+## Convención de commits:
 - `feat`: caracteristica nueva
 - `fix`: arreglo de un error
 - `style`: estilizar las interfaces sin agregar grandes caracteristicas nuevas
 - `refactor`: se cambia como funciona un modulo
 
-# Comandos para utilizar el proyecto
+# Comandos para utilizar en el proyecto
 ```bash
 python -m venv venv
 ```
@@ -81,5 +83,27 @@ c:\ProgramData\anaconda3\Scripts\activate.bat
 venv\Scripts\activate
 ```
 
-* Configuramos settings.py en la parte de "database" y ponemos imports
-* se crea archivo .venv con las variables de entorno de "Transaction pooler"
+### Dudas y cosas a realizar
+* Admin: filtros por fecha, búsqueda por RUT, acciones masivas (marcar salida)
+* ejecuccion de migraciones
+* conexion de supabase a render
+* proteger clave secreta
+* archivos estaticos
+* utilizar debug como variable de entorno
+
+
+* paginacion de listados
+
+@admin.register(NombreClase)
+class NombreClaseAdmin(admin:ModelAdmin):
+    date_hierarchy -->
+    list_display -->
+    search_fields -->
+    list_filter -->
+
+    @admin.display(description="Total")
+    def total_display(self, obj):
+        return f"${obj.total:,.0f}"
+
+### Mejorar en Markdown
+> Ver videos tutoriales de todos los posibles diseños.
