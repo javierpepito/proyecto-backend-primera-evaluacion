@@ -87,10 +87,7 @@ venv\Scripts\activate
 * Admin: filtros por fecha, búsqueda por RUT, acciones masivas (marcar salida)
 * ejecuccion de migraciones
 * conexion de supabase a render
-* proteger clave secreta
 * archivos estaticos
-* utilizar debug como variable de entorno
-
 
 * paginacion de listados
 
