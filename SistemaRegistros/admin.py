@@ -59,6 +59,6 @@ class VisitaAdmin(admin.ModelAdmin):
             messages.SUCCESS
         )
 
-admin.site.site_header = "Panel Interno — Registro de Visitas"
-admin.site.site_title = "Admin Registro de Visitas"
-admin.site.empty_value_display = '-Sin datos-'
+#admin.site.site_header = "Panel Interno — Registro de Visitas"
+#admin.site.site_title = "Admin Registro de Visitas"
+#admin.site.empty_value_display = '-Sin datos-'

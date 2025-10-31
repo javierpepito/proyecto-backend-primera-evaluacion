@@ -26,10 +26,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-wl+(ikdxjah#)(+i(l)iadgm_sd+t*uqr169d-b$9nwk^qey0k'
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-#DEBUG= True
 
-#ALLOWED_HOSTS = [ '.herokuapp.com' ] Permitir que los sitios webs puedan hostear el proyecto CREO.
-ALLOWED_HOSTS = ['.onrender.com', '*']
+ALLOWED_HOSTS = ['.onrender.com', 'proyecto-backend-primera-evaluacion.onrender.com']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://proyecto-backend-primera-evaluacion.onrender.com',
