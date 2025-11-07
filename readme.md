@@ -83,6 +83,10 @@ c:\ProgramData\anaconda3\Scripts\activate.bat
 venv\Scripts\activate
 ```
 
+```bash
+python manage.py createsuperuser
+```
+
 ### Dudas y cosas a realizar
 * Admin: filtros por fecha, búsqueda por RUT, acciones masivas (marcar salida)
 * ejecuccion de migraciones

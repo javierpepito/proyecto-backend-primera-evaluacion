@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wl+(ikdxjah#)(+i(l)iadgm_sd+t*uqr169d-b$9nwk^qey0k'
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['.onrender.com', 'proyecto-backend-primera-evaluacion.onrender.com']
+ALLOWED_HOSTS = ['.onrender.com', 'proyecto-backend-primera-evaluacion.onrender.com', '127.0.0.1']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://proyecto-backend-primera-evaluacion.onrender.com',
@@ -45,7 +45,13 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'SistemaRegistros',
+    'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
+    "PAGE_SIZE": 10,
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -81,7 +87,7 @@ WSGI_APPLICATION = 'AppSistemaRegistros.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv('DB_NAME'),
@@ -89,6 +95,13 @@ DATABASES = {
         "PASSWORD": os.getenv('DB_PASSWORD'),
         "HOST": os.getenv('DB_HOST'),
         "PORT": os.getenv('DB_PORT', '6543')
+    }
+}"""
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": "db.sqlite3",
     }
 }
 
