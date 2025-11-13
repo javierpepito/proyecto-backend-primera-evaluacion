@@ -55,6 +55,9 @@ python manage.py createsuperuser
 ```bash
 python manage.py runserver
 ```
+```bash
+python manage.py collectstatic
+```
 
 ## COLORES
 * Navbar: #262b40
