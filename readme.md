@@ -110,3 +110,5 @@ class NombreClaseAdmin(admin:ModelAdmin):
 
 ### Mejorar en Markdown
 > Ver videos tutoriales de todos los posibles diseños.
+
+Link a Portal Inacap: [https://portal.inacap.cl/estudiantes](https://www.leagueoflegends.com/es-es/)
