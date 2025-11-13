@@ -6,3 +6,4 @@ psycopg2
 whitenoise
 pytz
 djangorestframework
+djangorestframework-simplejwt
