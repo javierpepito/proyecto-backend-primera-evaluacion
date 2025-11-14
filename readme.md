@@ -112,3 +112,7 @@ class NombreClaseAdmin(admin:ModelAdmin):
 > Ver videos tutoriales de todos los posibles diseños.
 
 Link a Portal Inacap: [https://portal.inacap.cl/estudiantes](https://www.leagueoflegends.com/es-es/)
+
+### Cosas de API Rest
+Al usar Thunder cliente debe utilizar el link exacto con http o https:
+- http://127.0.0.1:8000/visita/lista_completa
