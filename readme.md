@@ -116,3 +116,11 @@ Link a Portal Inacap: [https://portal.inacap.cl/estudiantes](https://www.leagueo
 ### Cosas de API Rest
 Al usar Thunder cliente debe utilizar el link exacto con http o https:
 - http://127.0.0.1:8000/visita/lista_completa
+
+
+## Implementacion
+* Usar API restframework y los serializers y vistas correspondientes.
+* Usar token simple JWT requiriendose para el uso del endpoint.
+* Habilitar CorsHeaders para que el endpoint se pueda utilizar por una app externa.
+
+* Crear cliente que las consuma (Pagina Web, App Movil, Script de Python, IOT)
