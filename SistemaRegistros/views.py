@@ -5,6 +5,7 @@ from datetime import date
 from django.contrib.auth.models import Group, User
 from rest_framework import permissions, viewsets
 from .serializers import GroupSerializer, UserSerializer, VisitaSerializer
+from django.http import JsonResponse
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all().order_by("-date_joined")
@@ -18,9 +19,14 @@ class GroupViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 class VisitaViewSet(viewsets.ModelViewSet):
-    queryset = Visita.objects.all().order_by("name")
+    queryset = Visita.objects.all().order_by("nombre")
     serializer_class = VisitaSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+def custonm_endpoint(request):
+    return JsonResponse({
+        "secretos": "dasdasfasds"
+    })
 
 #Vista para ver visitas diarias
 def lista_visitas(request):

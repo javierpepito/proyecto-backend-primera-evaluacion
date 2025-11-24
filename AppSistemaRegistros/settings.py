@@ -35,6 +35,7 @@ CSRF_TRUSTED_ORIGINS = [
     'https://*.onrender.com',
 ]
 
+#Desde donde se permite el uso de la api
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:5500",
@@ -42,6 +43,9 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:8000",
     # Dominio desde donde se ocupe la API
 ]
+
+#Permite la enviar solicitudes a la api desde todos lados
+#CORS_ALLOWED_ALL_ORIGINS = True
 
 # Application definition
 
@@ -62,10 +66,6 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    # Opcional: forzar permisos por defecto (si quieres que todas las APIs requieran login)
-    # "DEFAULT_PERMISSION_CLASSES": (
-    #     "rest_framework.permissions.IsAuthenticated",
-    # ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
 }
