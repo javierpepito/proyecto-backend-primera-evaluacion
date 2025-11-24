@@ -111,7 +111,7 @@ WSGI_APPLICATION = 'AppSistemaRegistros.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-"""DATABASES = {
+DATABASES = {
     'default': {
         "ENGINE": "django.db.backends.postgresql",
         "NAME": os.getenv('DB_NAME'),
@@ -120,14 +120,14 @@ WSGI_APPLICATION = 'AppSistemaRegistros.wsgi.application'
         "HOST": os.getenv('DB_HOST'),
         "PORT": os.getenv('DB_PORT', '6543')
     }
-}"""
+}
 
-DATABASES = {
+"""DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": "db.sqlite3",
     }
-}
+}"""
 
 
 # Password validation
