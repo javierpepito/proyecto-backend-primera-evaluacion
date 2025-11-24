@@ -108,9 +108,6 @@ class NombreClaseAdmin(admin:ModelAdmin):
     def total_display(self, obj):
         return f"${obj.total:,.0f}"
 
-### Mejorar en Markdown
-> Ver videos tutoriales de todos los posibles diseños.
-
 Link a Portal Inacap: [https://portal.inacap.cl/estudiantes](https://www.leagueoflegends.com/es-es/)
 
 ### Cosas de API Rest
