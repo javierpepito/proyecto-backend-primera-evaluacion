@@ -41,6 +41,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5500",
     "http://localhost:4200",
     "http://127.0.0.1:8000",
+    "http://localhost:64451",
     # Dominio desde donde se ocupe la API
 ]
 
