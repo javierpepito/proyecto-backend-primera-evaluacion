@@ -46,8 +46,8 @@ CSRF_TRUSTED_ORIGINS = [
 ]"""
 
 #Permite la enviar solicitudes a la api desde todos lados
-CORS_ALLOWED_ALL_ORIGINS = True
-CORS_ALLOW_CREDENTIALS = True
+#CORS_ALLOWED_ALL_ORIGINS = True
+#CORS_ALLOW_CREDENTIALS = True
 # Application definition
 
 INSTALLED_APPS = [
